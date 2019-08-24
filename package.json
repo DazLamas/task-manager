@@ -1,0 +1,26 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Task Manager app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DazLamas/task-manager.git"
+  },
+  "keywords": [
+    "task",
+    "manager"
+  ],
+  "author": "Sarah Díaz Lamas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DazLamas/task-manager/issues"
+  },
+  "homepage": "https://github.com/DazLamas/task-manager#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

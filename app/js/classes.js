@@ -1,8 +1,7 @@
 // scripts.js
 
 class Task {
-  constructor(id, name) {
-    this.id 			= id;
+  constructor(name) {//TODO:Add ID
     this.name 			= name;
     this.state			= 0;
     this.time 			= undefined;
@@ -23,10 +22,22 @@ class TasksManager {
     this.queuedTasks = [];
   }
 
-  createTask(id, name) {
-    this.queuedTasks.push(new Task(id, name));
+  createTask(name) {
+  	const newTask = new Task(name);
+
+    this.queuedTasks.push(newTask);
+    this.addTask("queue-tasks-cont-js", newTask);
   }
   
+  addTask(where, task) {
+   
+   const parent = document.getElementById(where);
+   const string = task.htmlElemet;
+
+   parent.insertAdjacentHTML('beforeend', string);
+
+  }
+
   checkQueue() {
     return this.queuedTasks.size;
   }

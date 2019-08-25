@@ -10,8 +10,8 @@
 		<header class="header d-flex flex-column align-items-center justify-content-center py-4">
 			<h1 class="mb-4 h1 text-primary">Tasks Manager</h1>
 			<ul action="" class="d-flex flex-row align-items-center">
-				<li><input type="text" class="input-style mr-2"></li>
-				<li><button id="newTaskBtn" type="button" class="button">Create Task</button></li>
+				<li><input id="task-input-js" type="text" class="input-style mr-2"></li>
+				<li><button id="new-task-btn-js" type="button" class="button">Create Task</button></li>
 			</ul>
 		</header>
 		<div class="main">
@@ -19,21 +19,7 @@
 				<li class="table-column">
 					<span class="table-title">Queue</span>
 					<hr>
-					<ul>
-						<li class="card">
-							<h4 class="card-title">Task Name</h4>
-							<ul class="card-extra-text-cont d-flex flex-row invisible">
-								<li class="card-extra-text mr-2">Time</li>
-								<li class="card-extra-text mr-2">State</li>
-							</ul>
-						</li>
-						<li class="card">
-							<h4 class="card-title">Task Name</h4>
-							<ul class="card-extra-text-cont d-flex flex-row invisible">
-								<li class="card-extra-text mr-2">Time</li>
-								<li class="card-extra-text mr-2">State</li>
-							</ul>
-						</li>
+					<ul id="queue-tasks-cont-js">
 						<li class="card">
 							<h4 class="card-title">Task Name</h4>
 							<ul class="card-extra-text-cont d-flex flex-row invisible">

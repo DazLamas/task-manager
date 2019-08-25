@@ -9,6 +9,6 @@ newTaskBtn.addEventListener('click', function() {//TODO:Convert into arrow fn
 
 document.addEventListener('click',function(e){//TODO:Mejorar...
     if(e.target.dataset.js == "start-progress"){
-          tm.startTask(Number(e.target.dataset.jsId));
+          tm.taskInProgress(Number(e.target.dataset.jsId));
      };
  });

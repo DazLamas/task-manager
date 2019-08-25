@@ -16,33 +16,28 @@ class Task {
   }
 }
 
-
 class TasksManager {
   constructor() {
     this.queuedTasks = [];
-  }
+  };
 
   createTask(name) {
+  	
   	const newTask = new Task(name);
 
     this.queuedTasks.push(newTask);
-    this.addTask("queue-tasks-cont-js", newTask);
-  }
+    this.addTask("queue-tasks-cont-js", newTask); //make queueEl a prop of obj
+  };
   
   addTask(where, task) {
-   
-   const parent = document.getElementById(where);
-   const string = task.htmlElemet;
-
-   parent.insertAdjacentHTML('beforeend', string);
-
-  }
+   document.getElementById(where).insertAdjacentHTML('beforeend', task.htmlElemet);
+  };
 
   checkQueue() {
     return this.queuedTasks.size;
-  }
+  };
 
-}
+};
 
 
 

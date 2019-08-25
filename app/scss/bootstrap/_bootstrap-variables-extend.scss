@@ -40,12 +40,11 @@ $theme-colors: map-merge((
 
 
 ////Settings
-$body-color:   $gray-600;
+$body-color:   $black;
 $body-bg:      $gray-100;
 $enable-shadows:  true;
 
 ////Font
-$font-family-sans-serif:  'Roboto', Arial, sans-serif;
 $font-weight-medium:  500;
 $font-weight-bolder:  800;
 $font-weight-regular: 400;
@@ -61,7 +60,8 @@ $h2-font-size:   22px;
 $h3-font-size:   23px;
 $h1-font-size:   30px;
 
-$headings-color:        $blue;
+
+$headings-color:        $black;
 $headings-line-height:  normal;
 $headings-font-weight:  $font-weight-medium;
 

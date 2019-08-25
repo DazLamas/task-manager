@@ -37,10 +37,42 @@
 			justify-content: space-around;
 			width: 100%;
 		}
-		&-title {
-			
-		}
-
 	}
 }
+
+.specific-text-box{
+	visibility: hidden;
+}
+
+.stage-col {
+	&-queue {
+		.specific-text-box.queue {
+			visibility: visible;
+		}
+	}
+	&-progress {
+		.specific-text-box.progress {
+			visibility: visible;
+		}
+	}
+	&-finished {
+		.specific-text-box.finished {
+			visibility: visible;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

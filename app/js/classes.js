@@ -8,10 +8,11 @@ class Task {
     this.resolution 	= undefined;
     this.htmlElemet 	= `<li class="card">
 								<h4 class="card-title">${this.name}</h4>
-								<button id="start-progress-js" class="button">Start!</button>
-								<ul class="d-flex flex-row">
-									<li class="card-extra-text mr-2">Time:</li>
-									<li class="card-extra-text mr-2">Stage</li>
+								<button id="start-progress-js" class="button specific-text-box queue">Start!</button>
+								<span class="specific-text-box progress">Time spend:</span>
+								<ul class="d-flex flex-row specific-text-box finished">
+									<li id="display-time-js" class="card-extra-text mr-2">Time:</li>
+									<li id="display-resolution-js" class="card-extra-text mr-2">Stage:</li>
 								</ul>
 							</li>`;
   }

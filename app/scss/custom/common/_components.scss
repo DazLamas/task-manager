@@ -8,6 +8,8 @@
     border-radius: 0.45rem;
     padding: 10px 15px;
     margin: 7px 0;
+    height: 100px;
+    width: 200px;
     &-title {
 		font-size: 14px;
 		color: $gray-700;
@@ -23,8 +25,6 @@
 }
 
 .button {
-    height: 50px;
-    width: 200px;
 	display: inline-block;
     font-weight: 300;
     color: $white;

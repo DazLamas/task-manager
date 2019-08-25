@@ -1,14 +1,15 @@
 // scripts.js
 
 class Task {
-  constructor(name) {//TODO:Add ID
+  constructor(id, name) {//TODO:Add ID
+    this.id 			= id;
     this.name 			= name;
     this.stage			= 0;
     this.time 			= undefined;
     this.resolution 	= undefined;
-    this.htmlElemet 	= `<li class="card">
+    this.htmlCode 		= `<li id="task-${this.id}" class="card">
 								<h4 class="card-title">${this.name}</h4>
-								<button id="start-progress-js" class="button specific-text-box queue">Start!</button>
+								<button class="button specific-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
 								<span class="specific-text-box progress">Time spend:</span>
 								<ul class="d-flex flex-row specific-text-box finished">
 									<li id="display-time-js" class="card-extra-text mr-2">Time:</li>
@@ -19,34 +20,50 @@ class Task {
 }
 
 class TasksManager {
+
   constructor() {
-    this.queuedTasks = [];
+    this.tasks = new Map([]);
   };
+
 
   createTask(name) {
 	//Create  	
-  	const newTask = new Task(name);
+  	const newTask = new Task(generateUniqueId(), name);
   	//Add to Queue
-    this.queuedTasks.push(newTask);
+    this.tasks.set(newTask.id, newTask);
     //Move DOM Element to Queue Column
     this.moveToNextStage(newTask); //make queueEl a prop of obj
   };
+
+  updateStage(task) {
+	task.stage = task.stage + 1;//Review sintax and change for setter
+  }
   
   moveToNextStage(task) {
-  	//Update task stage
-  	task.stage = task.stage + 1;
+
+  	this.removeTaskFromCurrentStage(task);
+  	this.updateStage(task);
   	//Append to next stage column
-  	document.getElementById(`stage-col-${task.stage}-js`).insertAdjacentHTML('beforeend', task.htmlElemet);
+  	document.getElementById(`stage-col-${task.stage}-js`)
+  		.insertAdjacentHTML('beforeend', task.htmlCode);
+
   };
 
-  checkQueue() {
-    return this.queuedTasks.size;
+
+  removeTaskFromCurrentStage(task) {
+  	
+  	const itemToRemove = document.getElementById(`task-${task.id}`);
+  	
+  	if(itemToRemove) {//False means task isn't at Queue yet (Stage 0 so)
+  		itemToRemove.remove(); 
+  	}
+
   };
 
-  startTasks(){
-  	//check queue
-  	//Get all task an move it 
-  }
+
+  startTask(taskId){
+  	this.moveToNextStage(this.tasks.get(taskId));
+  };
 
 };
 

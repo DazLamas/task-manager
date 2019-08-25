@@ -7,9 +7,9 @@ class Task {
     this.time 			= undefined;
     this.resolution 	= undefined;
     this.htmlElemet 	= `<li class="card">
-								<h4 class="card-title">Task Name</h4>
+								<h4 class="card-title">${this.name}</h4>
 								<ul class="d-flex flex-row invisible">
-									<li class="card-extra-text mr-2">Time</li>
+									<li class="card-extra-text mr-2">Time:</li>
 									<li class="card-extra-text mr-2">State</li>
 								</ul>
 							</li>`;

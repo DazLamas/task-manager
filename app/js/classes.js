@@ -25,11 +25,11 @@ class Task {
 							           </li>`;
   };
 
-  updateStage(stage) {
-   this.stage = stage + 1;//Review sintax and change for setter
+  setStage(value) {
+   this.stage++;
   };
 
-  updateResolution(resolution) {//Setter
+  setResolution(resolution) {
    this.resolution = resolution;
   };
 
@@ -38,7 +38,7 @@ class Task {
   };
 
   setNode(taskId) {
-    this.node = document.getElementById(`task-${taskId}`);//Setter!!!!
+    this.node = document.getElementById(`task-${taskId}`);
   };
 
 };
@@ -58,13 +58,13 @@ class TasksManager {
     //Add task to queue column
     document.getElementById(`stage-col-1-js`) // Puede que esto sea mejor sacarlo a una fn "utils"
       .insertAdjacentHTML('beforeend', newTask.htmlCode); //Esto se puede sacar a una condición y realizar solo si es 0; luego se asigna id una vez incrustado y después en el else se trabaja ya con el DOMElemnt....igual así se puede actualizar el elemento html
-    //Save DOM Element node at Task Object in order to move it throw each column
+    //Save DOM Element node at Task Class in order to move it throw each column
     newTask.setNode(newTask.id);
   };
   
   moveToNextStage(task) {
 
-  	task.updateStage(task.stage); //* también se podría hacer el update de X por separado e intentar arreglar ahí...
+  	task.setStage(task.stage); //* también se podría hacer el update de X por separado e intentar arreglar ahí...
   	document.getElementById(`stage-col-${task.stage}-js`).appendChild(task.node);//Utils
 
   };
@@ -77,23 +77,31 @@ class TasksManager {
 
   taskInProgress(taskId){
 
-  	let task 	  = this.tasks.get(taskId);  	
+  	const task 	               = this.tasks.get(taskId);  	
+    const resolutionDisplay    = task.node.querySelector(".display-resolution-js");
 
     //To in progress stage
   	this.moveToNextStage(task);
-
+    //Update task props
     task.setDuration();
-    task.updateResolution(randomElementInArray(['success', 'failed']));
-
-  	setTimeout(() => {
-		  task.node.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
-		  task.node.querySelector(".display-resolution-js").innerText = task.resolution;////prop of task
-      task.node.querySelector(".display-resolution-js").classList.add(task.resolution);//prop of task
-	  	//To finished stage
-      this.moveToNextStage(task);
-	}, task.duration);
+    task.setResolution(randomElementInArray(['success', 'failed']));
+    //Simulate task progress and resolution
+    setTimeout(this.finishTask, task.duration, task, this); //this is "window" at setTimeOut fn
 
   };
+
+  finishTask(task, taskManagerObj) {
+
+    const resolutionDisplay = task.node.querySelector(".display-resolution-js");
+
+    //Display props at DOM
+    task.node.querySelector(".display-duration-js").innerText = Math.round(task.duration/1000);
+    resolutionDisplay.innerText = task.resolution;
+    resolutionDisplay.classList.add(task.resolution);
+    
+    //To finished stage column
+    taskManagerObj.moveToNextStage(task);
+  }
 
 };
 

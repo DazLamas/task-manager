@@ -183,7 +183,7 @@ html, body {
   width: 160px;
   border-radius: 0.1rem;
   padding: 15px 15px;
-  margin: 7px 0;
+  margin: 10px 0;
   background-color: #FFFAFA;
   background-clip: border-box;
   position: relative; }
@@ -370,7 +370,7 @@ html, body {
   justify-content: space-around;
   width: 100%;
   padding: 35px 30px;
-  background-color: #f7f7f7; }
+  background-color: transparent; }
 
 .landing .table-column {
   width: 190px; }

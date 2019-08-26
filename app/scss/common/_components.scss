@@ -4,59 +4,59 @@ $card-width: 160px;
 $card-px: 15px;
 .card {
 	display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
-    height: 80px;
-    width: $card-width;
-    border-radius: 0.1rem;
-    padding: 15px $card-px;
-    margin: 7px 0;
-    background-color: $white;
-    background-clip: border-box;
-    position: relative;
-    @extend .shadow-bottom;
-    &-subtitle, &-extra-text  {
-		font-size: $font-size-xxs;
-		color: $gray-400;
-        font-weight: 200;
-        font-style: italic;
-    }
-    &-title {
-        height: 16px;
-        font-size: 14px;
-        margin-bottom: 5px;
-        color:  #555555;
-        @extend .ellipsis;
-    }
-    &-btn{
-        position: absolute;
-        bottom: 15px;
-        // left: 15px;
-    }
-    &-text-box {
-        display: inline-block;
-        font-size: 0.7rem;
-        line-height: 1.5;
-        text-align: center;
-        vertical-align: middle;
-        border: none;
-        border-radius: 1px;
-        padding: 2px 5px;
-        align-self: flex-end;
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        &.success {
-            color: white;
-            background-color: $green;
-            border: 0.5px solid $green;
-        }
-        &.failed {
-            color: white;
-            background-color: $red;
-            border: 0.5px solid $red;
-        }
-    }
+  flex-direction: column;
+  word-wrap: break-word;
+  height: 80px;
+  width: $card-width;
+  border-radius: 0.1rem;
+  padding: 15px $card-px;
+  margin: 10px 0;
+  background-color: $white;
+  background-clip: border-box;
+  position: relative;
+  @extend .shadow-bottom;
+  &-subtitle, &-extra-text  {
+	font-size: $font-size-xxs;
+	color: $gray-400;
+      font-weight: 200;
+      font-style: italic;
+  }
+  &-title {
+      height: 16px;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color:  #555555;
+      @extend .ellipsis;
+  }
+  &-btn{
+      position: absolute;
+      bottom: 15px;
+      // left: 15px;
+  }
+  &-text-box {
+      display: inline-block;
+      font-size: 0.7rem;
+      line-height: 1.5;
+      text-align: center;
+      vertical-align: middle;
+      border: none;
+      border-radius: 1px;
+      padding: 2px 5px;
+      align-self: flex-end;
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      &.success {
+          color: white;
+          background-color: $green;
+          border: 0.5px solid $green;
+      }
+      &.failed {
+          color: white;
+          background-color: $red;
+          border: 0.5px solid $red;
+      }
+  }
 }
 
 .button {

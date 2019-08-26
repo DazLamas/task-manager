@@ -18,7 +18,7 @@ export class Task {
                             <div class="loading stage-text-box progress"><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div></div>
 
                             <span class="card-extra-text stage-text-box finished">
-                              Duration: <span class="display-duration-js"></span>s
+                              Completed in <span class="display-duration-js"></span>s
                             </span>
   
 

@@ -2,6 +2,7 @@ import { TasksManager } from './classes/tasks-manager.js';
 import { Task } 		from './classes/task.js';
 
 const tm = new TasksManager();
+tm.createTask('Clear cache');//Demo task
 
 const newTaskBtn 	= document.getElementById('new-task-btn-js');
 const startProgress = document.getElementsByClassName('start-progress-js');

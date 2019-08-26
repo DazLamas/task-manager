@@ -8,6 +8,7 @@ Check out Task Manager at https://dazlamas.github.io/task-manager/app/index.html
 * HTML/Sass
 * Gulp
 * NPM
+* Local server
 
 ### Installation
 

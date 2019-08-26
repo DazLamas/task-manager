@@ -1,7 +1,8 @@
 /* @file layout.scss */
 //Common rules for all app views
 
-$header-h: 135px;
+$header-h:  135px;
+$header-py: 10px;
 
 html, body{
   font-size: 16px;
@@ -27,8 +28,9 @@ html, body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 0;
+    padding: $header-py 0;
 	background-color: $gray-100;
+	z-index: 2;
 	&--items {
 		&-cont{
 			display: flex;
@@ -42,9 +44,11 @@ html, body{
 .main {
 	width: 100%;
 	height: 100%;
+	position: absolute;
 	max-width: 1000px; //Prevent errors at huge resolutions
 	display: flex;
 	justify-content: center;
-	padding-top:  $header-h;
+	top:  $header-h;
+	padding: 40px;
 }
 

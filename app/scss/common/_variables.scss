@@ -1,0 +1,43 @@
+/* @file _variables.scss */
+//Common variables for all app
+
+//Color
+
+$blue     : #1b84ed;
+$yellow   : #F5CD00;
+$red      : #e82f2f;
+$orange   : #ff760d;
+$green    : #12c02f;
+$black    : #2e2e2e;
+$white    : #FFFAFA;
+
+$gray-100   : #f7f7f7;
+$gray-200   : #D8d8d8;
+$gray-300   : #b7b7b7;
+$gray-400   : #a2a2a2;
+$gray-500   : #848484;
+$gray-600   : #717171;
+$gray-700   : #696969;
+$gray-800   : #555555;
+$gray-900   : #3e3e3e;
+
+
+$primary:    $green;
+$secondary:  $gray-400;
+$ligthen:    $gray-200;
+$darken:     $gray-900;
+
+
+$body-color:   $black;
+$body-bg:      $gray-100;
+
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+$font-size-sxx:                8px; //custom variable
+$font-size-xs:                 12px; //custom variable
+$font-size-normal:             16px;
+$font-size-lg:                 18px;
+$font-size-xl:                 12px;
+
+$small-font-size:             80%;
+

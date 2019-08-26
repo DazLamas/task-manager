@@ -1,24 +1,32 @@
 import { TasksManager } from './classes/tasks-manager.js';
-import { Task } 		from './classes/task.js';
 
-const tm = new TasksManager();
-tm.createTask('Clear cache');//Demo task
+(function(document, window, TasksManager, undefined){	
 
-const newTaskBtn 	= document.getElementById('new-task-btn-js');
-const startProgress = document.getElementsByClassName('start-progress-js');
+	const tm 			= new TasksManager();
+	const newTaskBtn 	= document.getElementById('new-task-btn-js');
+	const startProgress = document.getElementsByClassName('start-progress-js');
 
-document.addEventListener('click', (e) => {
- 
- if(e.target.dataset.js == "start-progress"){
-          tm.taskInProgress(Number(e.target.dataset.jsId));
- };
+	document.addEventListener('click', (e) => {
+	 
+	   switch (e.target.dataset.js) {
+	    case "start-progress":
+	       tm.taskInProgress(Number(e.target.dataset.jsId));
+	      break;
+		case "remove-task":
+			tm.removeTask(Number(e.target.dataset.jsId));
+		break;
+	    default:
+	      return false
+	  };
 
- if(e.target.dataset.js == "remove-task"){
-      tm.removeTask(Number(e.target.dataset.jsId));
- };
+	});
 
-});
+	newTaskBtn.addEventListener('click', (e) => {
+	 tm.createTask(document.getElementById('task-input-js').value);
+	});	
 
-newTaskBtn.addEventListener('click', (e) => {
- tm.createTask(document.getElementById('task-input-js').value);
-});
+	tm.createTask('Clear cache');//Simulate task, only for demo!
+
+})(document, window, TasksManager);
+
+

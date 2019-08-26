@@ -2,11 +2,12 @@
 
 class Task {
   constructor(id, name) {//TODO:Add ID
-    this.id 			= id;
-    this.name 			= name;
-    this.stage			= 0;
-    this.duration		= undefined;
+    this.id 			    = id;
+    this.name 			  = name;
+    this.stage			  = 1;
+    this.duration		  = undefined;
     this.resolution 	= undefined;
+    this.node         = undefined;
     this.htmlCode 		= `<li id="task-${this.id}" class="card">
   								          <h4 class="card-title">${this.name}</h4>
   								          <button class="button specific-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
@@ -31,53 +32,40 @@ class TasksManager {
 
 
   createTask(name) {
-	//Create  	
+	
   	const newTask = new Task(generateUniqueId(), name);
-  	//Add to Queue
+  	//Add tasks to Tasks Manager array
     this.tasks.set(newTask.id, newTask);
-    //Move DOM Element to Queue Column
-    this.moveToNextStage(newTask); //make queueEl a prop of obj
+    //Append to next stage column
+    document.getElementById(`stage-col-1-js`) // Puede que esto sea mejor sacarlo a una fn "utils"
+      .insertAdjacentHTML('beforeend', newTask.htmlCode); //Esto se puede sacar a una condición y realizar solo si es 0; luego se asigna id una vez incrustado y después en el else se trabaja ya con el DOMElemnt....igual así se puede actualizar el elemento html
+    newTask.node = document.getElementById(`task-${newTask.id}`);//Setter!!!!
   };
 
-  updateStage(task) {
+  updateStage(task) {//Método de Task, no de TM!!
 	 task.stage = task.stage + 1;//Review sintax and change for setter
   };
 
-  updateResolution(task) {
+  updateResolution(task) {//Método de Task, no de TM!!
 	 task.stage = task.stage + 1;//Review sintax and change for setter
   };
   
   moveToNextStage(task) {
 
-  	this.removeTaskFromCurrentStage(task);
   	this.updateStage(task); //* también se podría hacer el update de X por separado e intentar arreglar ahí...
-  	this.addTaskToNextStage(task);
+  	document.getElementById(`stage-col-${task.stage}-js`).appendChild(task.node);
 
   };
 
-
-  removeTaskFromCurrentStage(task) {
-  	
-  	const itemToRemove = document.getElementById(`task-${task.id}`);
-  	
-  	if(itemToRemove) {//False means task isn't at Queue yet (Stage 0 so)
-  		itemToRemove.remove(); 
-  	}
-
-  };
-
-
-  addTaskToNextStage(task) {
-    //Append to next stage column
-    document.getElementById(`stage-col-${task.stage}-js`) //errrrrorrr se sobreescribe el html....
-      .insertAdjacentHTML('beforeend', task.htmlCode); //Esto se puede sacar a una condición y realizar solo si es 0; luego se asigna id una vez incrustado y después en el else se trabaja ya con el DOMElemnt....igual así se puede actualizar el elemento html
+  removeTask(task) {
+      task.node.remove(); //From DOM
+      this.tasks.delete(task.id); //From Object
   };
 
 
   taskInProgress(taskId){
 
   	let task 	  = this.tasks.get(taskId);  	
-  	let taskDomEl = document.getElementById(`task-${task.id}`);
   
   	task.duration 	= generateRandomNumber(7000, 10000);
   	task.resolution = randomElementInArray(['success', 'fail']);
@@ -86,9 +74,9 @@ class TasksManager {
   	this.moveToNextStage(task);//To in progress stage
 
   	setTimeout(() => {
+		  task.node.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
+		  task.node.querySelector(".display-resolution-js").innerText = task.resolution;
 	  	this.moveToNextStage(task);//To finished stage
-		  taskDomEl.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
-		  taskDomEl.querySelector(".display-resolution-js").innerText = task.resolution;
 	}, task.duration);
 
   };

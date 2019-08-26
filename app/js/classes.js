@@ -8,18 +8,18 @@ class Task {
     this.duration		= undefined;
     this.resolution 	= undefined;
     this.htmlCode 		= `<li id="task-${this.id}" class="card">
-								<h4 class="card-title">${this.name}</h4>
-								<button class="button specific-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
-								<span class="specific-text-box progress" data-js="duration">Time spend:</span>
-								<ul class="d-flex flex-row specific-text-box finished">
-									<li class="card-extra-text mr-2">Time:
-										<span class="display-duration-js"></span>
-									</li>
-									<li class="card-extra-text mr-2">State:
-										<span class="display-resolution-js"></span>
-									</li>
-								</ul>
-							</li>`;
+  								          <h4 class="card-title">${this.name}</h4>
+  								          <button class="button specific-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
+  								          <span class="specific-text-box progress" data-js="duration">Time spend:</span>
+            								<ul class="d-flex flex-row specific-text-box finished">
+            									<li class="card-extra-text mr-2">Time:
+            										<span class="display-duration-js"></span>
+            									</li>
+            									<li class="card-extra-text mr-2">State:
+            										<span class="display-resolution-js"></span>
+            									</li>
+            								</ul>
+							           </li>`;
   }
 }
 
@@ -40,20 +40,18 @@ class TasksManager {
   };
 
   updateStage(task) {
-	task.stage = task.stage + 1;//Review sintax and change for setter
-  }
+	 task.stage = task.stage + 1;//Review sintax and change for setter
+  };
 
   updateResolution(task) {
-	task.stage = task.stage + 1;//Review sintax and change for setter
-  }
+	 task.stage = task.stage + 1;//Review sintax and change for setter
+  };
   
   moveToNextStage(task) {
 
   	this.removeTaskFromCurrentStage(task);
-  	this.updateStage(task);
-  	//Append to next stage column
-  	document.getElementById(`stage-col-${task.stage}-js`) //errrrrorrr se sobreescribe el html....
-  		.insertAdjacentHTML('beforeend', task.htmlCode);
+  	this.updateStage(task); //* también se podría hacer el update de X por separado e intentar arreglar ahí...
+  	this.addTaskToNextStage(task);
 
   };
 
@@ -66,6 +64,13 @@ class TasksManager {
   		itemToRemove.remove(); 
   	}
 
+  };
+
+
+  addTaskToNextStage(task) {
+    //Append to next stage column
+    document.getElementById(`stage-col-${task.stage}-js`) //errrrrorrr se sobreescribe el html....
+      .insertAdjacentHTML('beforeend', task.htmlCode); //Esto se puede sacar a una condición y realizar solo si es 0; luego se asigna id una vez incrustado y después en el else se trabaja ya con el DOMElemnt....igual así se puede actualizar el elemento html
   };
 
 
@@ -82,8 +87,8 @@ class TasksManager {
 
   	setTimeout(() => {
 	  	this.moveToNextStage(task);//To finished stage
-		document.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
-		document.querySelector(".display-resolution-js").innerText 	= task.resolution;
+		  taskDomEl.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
+		  taskDomEl.querySelector(".display-resolution-js").innerText = task.resolution;
 	}, task.duration);
 
   };

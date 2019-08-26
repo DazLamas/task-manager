@@ -1,6 +1,6 @@
-/* utilities.j */
+/* utilities.js */
 
-function generateUniqueId(){//TODO thisss
+function generateUniqueId(){
     return Date.now();
 };
 
@@ -17,5 +17,5 @@ function addStringAsDomElement(parent, string, type = 'beforeend') {
 }
 
 function appendChild(parent, child) {
-	parent.appendChild(child);//Utils
-}
+	parent.appendChild(child);
+};

@@ -1,13 +1,16 @@
+import { TasksManager } from './classes/tasks-manager.js';
+import { Task } 		from './classes/task.js';
+
 const tm = new TasksManager();
 
 const newTaskBtn 	= document.getElementById('new-task-btn-js');
 const startProgress = document.getElementsByClassName('start-progress-js');
 
-newTaskBtn.addEventListener('click', function() {//TODO:Convert into arrow fn
+newTaskBtn.addEventListener('click', function(e) {//arrow
 	tm.createTask(document.getElementById('task-input-js').value);
 });
 
-document.addEventListener('click',function(e){//TODO:Mejorar...
+document.addEventListener('click',function(e){
     if(e.target.dataset.js == "start-progress"){
           tm.taskInProgress(Number(e.target.dataset.jsId));
      };

@@ -10,9 +10,9 @@ class Task {
     this.node         = undefined;
     this.htmlCode 		= `<li id="task-${this.id}" class="card">
   								          <h4 class="card-title">${this.name}</h4>
-  								          <button class="button specific-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
-  								          <span class="specific-text-box progress" data-js="duration">Time spend:</span>
-            								<ul class="d-flex flex-row specific-text-box finished">
+  								          <button class="button btn-lighten stage-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
+  								          <span class="stage-text-box progress" data-js="duration">Time spend:</span>
+            								<ul class="d-flex flex-row stage-text-box finished">
             									<li class="card-extra-text mr-2">Time:
             										<span class="display-duration-js"></span>
             									</li>

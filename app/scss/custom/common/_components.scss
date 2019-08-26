@@ -1,3 +1,6 @@
+/* components.scss */
+//Common components layout and styles. Used across the app.
+
 .card {
 	display: flex;
     flex-direction: column;
@@ -10,41 +13,47 @@
     margin: 7px 0;
     height: 100px;
     width: 200px;
+    &-subtitle, &-extra-text, &-title  {
+		font-size: 10px;
+		color: $gray-400;
+    }
     &-title {
 		font-size: 14px;
-		color: $gray-700;
-    }
-    &-subtitle {
-		font-size: 10px;
-		color: $gray-400;
-    }
-    &-extra-text {
-		font-size: 10px;
-		color: $gray-400;
     }
 }
 
 .button {
 	display: inline-block;
+    font-size: 0.7rem;
     font-weight: 300;
-    color: $white;
+    line-height: 1.5;
     text-align: center;
     vertical-align: middle;
-    user-select: none;
-    background-color: $primary;
     border: none;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.7rem;
-    line-height: 1.5;
     border-radius: 10px;
+    padding: 0.375rem 0.75rem;
     transition: all 0.15s ease-in-out;
-    &:hover{
-		background-color: #0069d9;
-    	border-color: #0062cc;
+    user-select: none;
+    &.btn-primary {
+        color: $white;
+        background-color: $primary;
     }
+    &.btn-secondary {
+        color: $white;
+        background-color: $secondary;
+    }
+    &.btn-lighten {
+        color: $gray-700;
+        background-color: $gray-100;
+    }
+    &:hover {
+      // color: rgba(255, 255, 255, 1) !important;
+      box-shadow: 0 1px 4px $gray-500;
+    }
+
 }
 
-.input-style {
+.input {
 	 border: none;
 }
 

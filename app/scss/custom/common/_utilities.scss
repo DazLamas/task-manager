@@ -6,17 +6,9 @@
   align-items: center;
 }
 
-.scroll-y{
-  overflow-y: auto;
-}
-
-.pointer {
-  &:hover {
-    cursor: pointer;
-  }
-}
-.no-pointer {
-  cursor: not-allowed;
+.full-screen {
+    width: 100%;
+    height: 100vh;
 }
 
 .nowrap-text {
@@ -32,34 +24,6 @@
 
 .muted {
   opacity: 0.5;
-}
-
-.height {
-  &.extra-xxs {
-    height: 15px;
-  }
-  &.xxs {
-    height: 20px;
-  }
-  &.xs {
-    height: 25px;
-  }
-  &.sm {
-    height: 30px;
-  }
-  &.lg {
-    height: 35px;
-  }
-  &.extra-lg {
-    height: 45px;
-  }
-}
-
-.font-weight-bolder {
-  font-weight: $font-weight-bolder;
-}
-.font-weight-medium {
-  font-weight: $font-weight-medium;
 }
 
 .shadow {

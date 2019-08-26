@@ -8,29 +8,26 @@
 <body>
 	<div class="page landing">
 		<header class="header">
-			<h1 class="header--title">Tasks Manager</h1>
-			<ul class="header--items-cont">
-				<li><input id="task-input-js" type="text" class="input header--input" placeholder="Type your task name..."></li>
-				<li><button id="new-task-btn-js" type="button" class="button btn-lighten header--button">Create Task</button></li>
+			<h1 class="header-title">Tasks Manager</h1>
+			<ul class="header-items-cont">
+				<li><input id="task-input-js" type="text" class="input header-input" placeholder="Type your task name..."></li>
+				<li><button id="new-task-btn-js" type="button" class="button btn-lighten header-button">Create Task</button></li>
 			</ul>
 		</header>
 		<div class="main">
-			<ul class="table-container box-shadow--bottom page-max-width">
+			<ul class="table-container box-shadow-bottom page-max-width">
 				<li class="table-column">
 					<span class="table-title">Queue</span>
-					<hr>
 					<ul id="stage-col-1-js" class="stage-col-queue">
 					</ul>
 				</li>
-				<li>
-					<span>In Progress</span>
-					<hr>
+				<li class="table-column">
+					<span class="table-title">In Progress</span>
 					<ul id="stage-col-2-js" class="stage-col-progress">
 					</ul>
 				</li>
-				<li>
-					<span>Finished</span>
-					<hr>
+				<li class="table-column">
+					<span class="table-title">Finished</span>
 					<ul id="stage-col-3-js" class="stage-col-finished">
 					</ul>
 				</li>

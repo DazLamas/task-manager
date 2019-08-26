@@ -9,17 +9,19 @@ class Task {
     this.resolution 	= undefined;
     this.node         = undefined;
     this.htmlCode 		= `<li id="task-${this.id}" class="card">
-  								          <h4 class="card-title">${this.name}</h4>
-  								          <button class="button btn-lighten stage-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
-  								          <span class="stage-text-box progress" data-js="duration">Time spend:</span>
-            								<ul class="d-flex flex-row stage-text-box finished">
-            									<li class="card-extra-text mr-2">Time:
-            										<span class="display-duration-js"></span>
-            									</li>
-            									<li class="card-extra-text mr-2">State:
-            										<span class="display-resolution-js"></span>
-            									</li>
-            								</ul>
+  								          <h4 class="card-title capitalize">${this.name}</h4>
+                            <span class="card-extra-text stage-text-box queue">Ready to start!</span>
+                            <span class="card-extra-text stage-text-box progress">Working on it...</span>
+                            
+                            <div class="loading stage-text-box progress"><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div></div>
+
+                            <span class="card-extra-text stage-text-box finished">
+                              Duration: <span class="display-duration-js"></span>s
+                            </span>
+  
+
+  								          <span class="card-text-box stage-text-box finished display-resolution-js"></span>
+                            <button class="card-btn button btn-primary stage-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
 							           </li>`;
   }
 }
@@ -68,7 +70,7 @@ class TasksManager {
   	let task 	  = this.tasks.get(taskId);  	
   
   	task.duration 	= generateRandomNumber(7000, 10000);
-  	task.resolution = randomElementInArray(['success', 'fail']);
+  	task.resolution = randomElementInArray(['success', 'failed']);
 
 
   	this.moveToNextStage(task);//To in progress stage
@@ -76,6 +78,7 @@ class TasksManager {
   	setTimeout(() => {
 		  task.node.querySelector(".display-duration-js").innerText 	= Math.round(task.duration/1000);
 		  task.node.querySelector(".display-resolution-js").innerText = task.resolution;
+      task.node.querySelector(".display-resolution-js").classList.add(task.resolution);
 	  	this.moveToNextStage(task);//To finished stage
 	}, task.duration);
 

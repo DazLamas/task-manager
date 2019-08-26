@@ -3,27 +3,39 @@
 
 .landing {//View id
 	.header{
-		&--input {
+		&-input {
 			background: #5cb76c;
 			height: 40px;
 			width: 300px;
 			margin-right: 10px;
 		}
-		&--button {
+		&-button {
 			padding: 12px 0.75rem;
 		}
 	}
-	.table-container {
+	.table {
+		&-container {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
 			width: 100%;
 			padding: 35px 30px;
-			background-color: $white;
+			// background-color: $white;
+		}
+		&-column {
+			width: $card-width + $card-px*2;
+		}
+		&-title {
+			margin-bottom: 15px;
+			display: block;
+		    font-weight: 500;
+		    color: $gray-800;
+		    letter-spacing: 0.5px;
+		}
 	}
 
 	.stage-text-box{
-		visibility: hidden;
+		display: none;
 	}
 	
 	//Needed for JS. Show different task props depending on its column/stage
@@ -31,17 +43,17 @@
 	.stage-col {
 		&-queue {
 			.stage-text-box.queue {
-				visibility: visible;
+				display: inline-block;
 			}
 		}
 		&-progress {
 			.stage-text-box.progress {
-				visibility: visible;
+				display: inline-block;
 			}
 		}
 		&-finished {
 			.stage-text-box.finished {
-				visibility: visible;
+				display: inline-block;
 			}
 		}
 	}

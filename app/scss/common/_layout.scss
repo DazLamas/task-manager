@@ -35,13 +35,13 @@ html, body{
     padding: $header-py 0;
 	background-color: $green;
 	z-index: 2;
-	&--title {
+	&-title {
     	font-weight: 100;
 		margin: 0 25px;
 		color: $white;
 		flex: 1;
 	}
-	&--items {
+	&-items {
 		&-cont{
 			flex: 2;
 			display: flex;

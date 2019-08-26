@@ -20,6 +20,7 @@ export class TasksManager {
     addStringAsDomElement(this.queueNode, newTask.htmlCode);
     //Save DOM Element node at Task Class in order to move it throw each column
     newTask.setNode(newTask.id);
+    // newTask.node.classList.add('opacity');
   };
   
   moveToNextStage(task) {
@@ -33,6 +34,7 @@ export class TasksManager {
 
       const task = this.tasks.get(taskId);    
 
+      task.node.classList.add('fade-out'); //From DOM
       task.node.remove(); //From DOM
       this.tasks.delete(task.id); //From Object
   };

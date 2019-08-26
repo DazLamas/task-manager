@@ -180,6 +180,17 @@ html, body {
 .color-light {
   color: #D8d8d8; }
 
+.fade-out {
+  animation: fade 3s steps(90) forwards;
+  -webkit-animation: fade 3s steps(90) forwards;
+  -moz-animation: fade 3s steps(90) forwards; }
+
+@keyframes fade {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0.0; } }
+
 /* components.scss */
 .card {
   display: flex;

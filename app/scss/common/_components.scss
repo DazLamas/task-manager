@@ -14,7 +14,13 @@ $card-px: 15px;
   background-color: $white;
   background-clip: border-box;
   position: relative;
+  // opacity: 0;
+  // -webkit-transition: opacity 30s linear;
+  // transition: opacity 30s linear;
   @extend .shadow-bottom;
+  // &.opacity {
+  //    opacity: 1;
+  //   }
   &-subtitle, &-extra-text  {
 	font-size: $font-size-xxs;
 	color: $gray-400;

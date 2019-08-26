@@ -157,7 +157,7 @@ html, body {
 .muted {
   opacity: 0.5; }
 
-.shadow-bottom, .card, .shadow:hover {
+.shadow-bottom, .header, .card, .shadow:hover {
   -webkit-box-shadow: 0px 2px 6px 0.5px #00000014;
   /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 0px 2px 6px 0.5px #00000014;
@@ -201,7 +201,8 @@ html, body {
   color: #555555; }
 
 .card-btn {
-  margin-top: 16px; }
+  position: absolute;
+  bottom: 15px; }
 
 .card-text-box {
   display: inline-block;
@@ -213,7 +214,9 @@ html, body {
   border-radius: 1px;
   padding: 2px 5px;
   align-self: flex-end;
-  margin-top: 22px; }
+  position: absolute;
+  bottom: 15px;
+  right: 15px; }
 
 .card-text-box.success {
   color: white;
@@ -366,7 +369,8 @@ html, body {
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  padding: 35px 30px; }
+  padding: 35px 30px;
+  background-color: #f7f7f7; }
 
 .landing .table-column {
   width: 190px; }

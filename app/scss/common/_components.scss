@@ -29,7 +29,9 @@ $card-px: 15px;
         @extend .ellipsis;
     }
     &-btn{
-        margin-top: 16px;
+        position: absolute;
+        bottom: 15px;
+        // left: 15px;
     }
     &-text-box {
         display: inline-block;
@@ -41,7 +43,9 @@ $card-px: 15px;
         border-radius: 1px;
         padding: 2px 5px;
         align-self: flex-end;
-        margin-top: 22px;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
         &.success {
             color: white;
             background-color: $green;

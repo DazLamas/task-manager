@@ -48,6 +48,7 @@ This will install http-server globally so that it may be run from the command li
 ```
 Now you can visit http://localhost:8080 to view your server. 
 
-**And that's it.
-####Enjoy!!**
+And that's it.
+
+**Enjoy!!**
 

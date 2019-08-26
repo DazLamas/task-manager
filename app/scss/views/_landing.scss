@@ -2,6 +2,17 @@
 //Landing view stylesheets
 
 .landing {//View id
+	.header{
+		&--input {
+			background: #5cb76c;
+			height: 40px;
+			width: 300px;
+			margin-right: 10px;
+		}
+		&--button {
+			padding: 12px 0.75rem;
+		}
+	}
 	.table-container {
 			display: flex;
 			flex-direction: row;

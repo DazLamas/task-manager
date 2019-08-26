@@ -46,27 +46,28 @@ class Task {
 class TasksManager {
 
   constructor() {
-    this.tasks = new Map([]);
+    this.tasks     = new Map([]);
+    this.queueNode = document.getElementById(`stage-col-1-js`);
   };
 
 
   createTask(name) {
 	
   	const newTask = new Task(generateUniqueId(), name);
-  	//Add tasks to Tasks Manager array
+  	
+    //Add tasks to Tasks Manager array
     this.tasks.set(newTask.id, newTask);
     //Add task to queue column
-    document.getElementById(`stage-col-1-js`) // Puede que esto sea mejor sacarlo a una fn "utils"
-      .insertAdjacentHTML('beforeend', newTask.htmlCode); //Esto se puede sacar a una condición y realizar solo si es 0; luego se asigna id una vez incrustado y después en el else se trabaja ya con el DOMElemnt....igual así se puede actualizar el elemento html
+    addStringAsDomElement(this.queueNode, newTask.htmlCode);
     //Save DOM Element node at Task Class in order to move it throw each column
     newTask.setNode(newTask.id);
   };
   
   moveToNextStage(task) {
 
-  	task.setStage(task.stage); //* también se podría hacer el update de X por separado e intentar arreglar ahí...
-  	document.getElementById(`stage-col-${task.stage}-js`).appendChild(task.node);//Utils
-
+  	task.setStage(task.stage);
+  	appendChild(document.getElementById(`stage-col-${task.stage}-js`), task.node);
+    
   };
 
   removeTask(task) {
@@ -82,9 +83,11 @@ class TasksManager {
 
     //To in progress stage
   	this.moveToNextStage(task);
+    
     //Update task props
     task.setDuration();
     task.setResolution(randomElementInArray(['success', 'failed']));
+    
     //Simulate task progress and resolution
     setTimeout(this.finishTask, task.duration, task, this); //this is "window" at setTimeOut fn
 

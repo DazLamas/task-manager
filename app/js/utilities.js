@@ -11,3 +11,11 @@ function generateRandomNumber(min_value , max_value) {
 function randomElementInArray(array) {
     return array[generateRandomNumber(0, array.length)];
 };
+
+function addStringAsDomElement(parent, string, type = 'beforeend') {
+	parent.insertAdjacentHTML(type, string);
+}
+
+function appendChild(parent, child) {
+	parent.appendChild(child);//Utils
+}

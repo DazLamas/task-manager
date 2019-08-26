@@ -171,8 +171,14 @@ html, body {
 .no-pointer {
   cursor: disable; }
 
+.pointer {
+  cursor: pointer; }
+
 .capitalize {
   text-transform: capitalize; }
+
+.color-light {
+  color: #D8d8d8; }
 
 /* components.scss */
 .card {
@@ -204,6 +210,14 @@ html, body {
   position: absolute;
   bottom: 15px; }
 
+.card-footer {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  left: 15px;
+  display: flex;
+  justify-content: space-between; }
+
 .card-text-box {
   display: inline-block;
   font-size: 0.7rem;
@@ -212,11 +226,7 @@ html, body {
   vertical-align: middle;
   border: none;
   border-radius: 1px;
-  padding: 2px 5px;
-  align-self: flex-end;
-  position: absolute;
-  bottom: 15px;
-  right: 15px; }
+  padding: 2px 5px; }
 
 .card-text-box.success {
   color: white;
@@ -386,10 +396,10 @@ html, body {
   display: none; }
 
 .landing .stage-col-queue .stage-text-box.queue {
-  display: inline-block; }
+  display: flex; }
 
 .landing .stage-col-progress .stage-text-box.progress {
-  display: inline-block; }
+  display: flex; }
 
 .landing .stage-col-finished .stage-text-box.finished {
-  display: inline-block; }
+  display: flex; }

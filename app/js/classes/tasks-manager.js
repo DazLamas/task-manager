@@ -29,7 +29,10 @@ export class TasksManager {
     
   };
 
-  removeTask(task) {
+  removeTask(taskId) {
+
+      const task = this.tasks.get(taskId);    
+
       task.node.remove(); //From DOM
       this.tasks.delete(task.id); //From Object
   };

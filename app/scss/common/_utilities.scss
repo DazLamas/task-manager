@@ -43,6 +43,15 @@
   cursor: disable;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .capitalize {
   text-transform: capitalize;
 }
+
+.color-light {
+  color: $gray-200;
+}
+

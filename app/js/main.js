@@ -12,7 +12,12 @@ newTaskBtn.addEventListener('click', function(e) {//arrow
 });
 
 document.addEventListener('click',function(e){
+    
     if(e.target.dataset.js == "start-progress"){
           tm.taskInProgress(Number(e.target.dataset.jsId));
+     };
+
+     if(e.target.dataset.js == "remove-task"){
+          tm.removeTask(Number(e.target.dataset.jsId));
      };
  });

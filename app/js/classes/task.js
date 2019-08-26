@@ -18,11 +18,14 @@ export class Task {
                             <div class="loading stage-text-box progress"><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div></div>
 
                             <span class="card-extra-text stage-text-box finished">
-                              Completed in <span class="display-duration-js"></span>s
+                              Completed in:  <span class="display-duration-js"></span>s
                             </span>
   
-
-  								          <span class="card-text-box stage-text-box finished display-resolution-js"></span>
+                            <ul class="card-footer stage-text-box finished">
+                              <li><span class="card-text-box display-resolution-js"></span></li>
+                              <li><i data-js="remove-task" class="fas color-light fa-trash pointer" data-js-id="${this.id}"></i></li>
+                            </ul>
+  								          
                             <button class="card-btn button btn-primary stage-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
 							           </li>`;
   };

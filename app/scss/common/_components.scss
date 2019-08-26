@@ -33,6 +33,14 @@ $card-px: 15px;
       bottom: 15px;
       // left: 15px;
   }
+  &-footer {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
   &-text-box {
       display: inline-block;
       font-size: 0.7rem;
@@ -42,10 +50,6 @@ $card-px: 15px;
       border: none;
       border-radius: 1px;
       padding: 2px 5px;
-      align-self: flex-end;
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
       &.success {
           color: white;
           background-color: $green;

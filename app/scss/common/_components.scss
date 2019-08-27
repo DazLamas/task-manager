@@ -14,13 +14,9 @@ $card-px: 15px;
   background-color: $white;
   background-clip: border-box;
   position: relative;
-  // opacity: 0;
-  // -webkit-transition: opacity 30s linear;
-  // transition: opacity 30s linear;
+
   @extend .shadow-bottom;
-  // &.opacity {
-  //    opacity: 1;
-  //   }
+
   &-subtitle, &-extra-text  {
 	font-size: $font-size-xxs;
 	color: $gray-400;
@@ -108,7 +104,6 @@ $card-px: 15px;
         border: 0.5px solid $green;
     }
     &:hover {
-      // color: rgba(255, 255, 255, 1) !important;
       box-shadow: 0 1px 4px $gray-500;
     }
 

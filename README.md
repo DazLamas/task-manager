@@ -1,6 +1,6 @@
 # Task Manager
 
-Check out Task Manager at https://dazlamas.github.io/task-manager/app/index.html
+Check out the project at https://dazlamas.github.io/task-manager/app/index.html
 
 ### Tech
 

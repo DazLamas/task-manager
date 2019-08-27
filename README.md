@@ -38,7 +38,7 @@ By default, the content of the directory will run at _port 8000_. Enter the foll
 
     http://localhost:8000/app/
 
-A highly recommended option to _pythn_ is [http-server](https://www.npmjs.com/package/http-server).
+A highly recommended option to _python_ is [http-server](https://www.npmjs.com/package/http-server).
 To install using _npm_:
 
 ```sh

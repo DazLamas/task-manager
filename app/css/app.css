@@ -363,6 +363,16 @@ html, body {
   40% {
     transform: scale(1); } }
 
+.icon-prepend:before {
+  font-family: "Font Awesome 5 Free";
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding-right: 6px;
+  font-weight: 900; }
+
+.icon-brand:before {
+  content: "\f0c3"; }
+
 /* @file views.scss */
 /* @file landing.scss */
 .landing .header-input {

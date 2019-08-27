@@ -1,8 +1,10 @@
 /* task.js */
+//Task Class. Most of its props and meths are explained at task-manager.js
 
 import { TasksManager } from './tasks-manager.js';
 
 export class Task {
+
   constructor(id, name) {
     this.id 			    = id;
     this.name 			  = name || "unnamed task";
@@ -20,7 +22,6 @@ export class Task {
                             <span class="card-extra-text stage-text-box finished">
                               Completed in:  <span class="display-duration-js"></span>s
                             </span>
-  
                             <ul class="card-footer stage-text-box finished">
                               <li><span class="card-text-box display-resolution-js"></span></li>
                               <li><i data-js="remove-task" class="fas color-light fa-trash pointer" data-js-id="${this.id}"></i></li>

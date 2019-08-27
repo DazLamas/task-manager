@@ -1,23 +1,33 @@
 import { TasksManager } from './classes/tasks-manager.js';
-import { Task } 		from './classes/task.js';
 
-const tm = new TasksManager();
-tm.createTask('Clear cache');//Demo task
+(function(document, window, TasksManager, undefined){	
 
-const newTaskBtn 	= document.getElementById('new-task-btn-js');
-const startProgress = document.getElementsByClassName('start-progress-js');
+	const tm 			= new TasksManager();
+	const newTaskBtn 	= document.getElementById('new-task-btn-js');
+	const startProgress = document.getElementsByClassName('start-progress-js');
 
-newTaskBtn.addEventListener('click', function(e) {//arrow
-	tm.createTask(document.getElementById('task-input-js').value);
-});
+	document.addEventListener('click', (e) => {//Triggers are not create when event is delegated onload
+	 
+	   switch (e.target.dataset.js) {//Desired target has dataset.jsId identifier
+	    case "start-progress":
+	       tm.taskInProgress(Number(e.target.dataset.jsId));
+	      break;
+		case "remove-task":
+			tm.removeTask(Number(e.target.dataset.jsId));
+		break;
+	    default:
+	      return false
+	  };
 
-document.addEventListener('click',function(e){
-    
-    if(e.target.dataset.js == "start-progress"){
-          tm.taskInProgress(Number(e.target.dataset.jsId));
-     };
+	});
 
-     if(e.target.dataset.js == "remove-task"){
-          tm.removeTask(Number(e.target.dataset.jsId));
-     };
- });
+
+	newTaskBtn.addEventListener('click', (e) => {
+	 tm.createTask(document.getElementById(e.target.dataset.anchor).value);//Trigger keeps its input id at dataset.anchor atributte
+	});	
+
+	tm.createTask('Clear cache');//Simulate task, only for demo!
+
+})(document, window, TasksManager);
+
+

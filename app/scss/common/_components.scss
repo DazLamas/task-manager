@@ -1,5 +1,5 @@
 /* components.scss */
-//Common components layout and styles. Used across the app.
+// @desc Common components layout and styles. Used across the app.
 $card-width: 160px;
 $card-px: 15px;
 .card {
@@ -14,7 +14,13 @@ $card-px: 15px;
   background-color: $white;
   background-clip: border-box;
   position: relative;
+  // opacity: 0;
+  // -webkit-transition: opacity 30s linear;
+  // transition: opacity 30s linear;
   @extend .shadow-bottom;
+  // &.opacity {
+  //    opacity: 1;
+  //   }
   &-subtitle, &-extra-text  {
 	font-size: $font-size-xxs;
 	color: $gray-400;

@@ -71,3 +71,26 @@
   }
 }
 
+.hidden {
+  
+  display: none;
+
+  &-mobile {
+    @media (max-width: $breakpoint-xs-device) {
+      display: none;
+    };
+  }
+  &-tablet {
+    @media (min-width: $breakpoint-xs-device) and (max-width: $breakpoint-sm-device) {
+      display: none;
+    };
+  }
+  &-tablet {
+  @media (min-width: $breakpoint-sm-device) {
+      display: none;
+    };
+  }
+}
+
+
+

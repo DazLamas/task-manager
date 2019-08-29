@@ -20,14 +20,10 @@ export class TasksManager {
   createTask(name) {
 	
   	const task = new Task(generateUniqueId(), name);
-    const node = getHtmlCode(task.stage, task);
-  	
-    //Add tasks to Tasks Manager prop
-    this.tasks.set(task.id, task);
-    //Add task to queue column
-    addStringAsDomElement(this.queueNode, node);
-    //Save DOM Element node at Task Class in order to move it throw each column
-    task.setNode(task.id); 
+    
+    this.tasks.set(task.id, task);//Add tasks to Tasks Manager prop
+    
+    this.moveToNextStage(task); //Add task to queue column
   };
   
   /* 
@@ -45,7 +41,7 @@ export class TasksManager {
 
   	task.setStage(task.stage);//Increase stage
     
-    taskManager.removeTask(task.id); //Avoid removing node when task is being creating.
+    if(task.stage !== 1){taskManager.removeTask(task.id);} //Avoid removing node when task is being creating.
     
     addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
     

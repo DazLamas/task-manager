@@ -8,7 +8,7 @@ export class Task {
   constructor(id, name) {
     this.id 			    = id;
     this.name 			  = name || "unnamed task";
-    this.stage			  = 1;
+    this.stage			  = 0;
     this.duration		  = undefined;
     this.resolution 	= undefined;
     this.node         = undefined;

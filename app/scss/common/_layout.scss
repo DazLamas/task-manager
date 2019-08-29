@@ -26,7 +26,8 @@ html, body{
 
 .header {
 	width: 100%;
-	height: $header-h;
+	min-height: $header-h;//set on desktop
+	height: auto;
 	position: fixed;
     display: flex;
     flex-direction: row;
@@ -35,12 +36,14 @@ html, body{
     padding: $header-py 0;
 	background-color: $green;
 	z-index: 2;
+	flex-wrap: wrap;
 	@extend .shadow-bottom;
 	&-title {
     	font-weight: 100;
 		margin: 0 25px;
 		color: $white;
 		flex: 1;
+		padding: 5px 5px 0 5px;
 	}
 	&-items {
 		&-cont{
@@ -48,6 +51,7 @@ html, body{
 			display: flex;
 			flex-direction: row;
 			align-items: center;
+			padding: 5px 5px 0 5px; // For small-resolution
 		}
 	}
 }

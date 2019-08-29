@@ -41,11 +41,14 @@ export class TasksManager {
    * @params task · obj · task to move
    * @Needs  task.js | utilities.js
    */
-  moveToNextStage(task) {
+  moveToNextStage(task, taskManager = this) {
 
-  	task.setStage(task.stage);   //Increase stage
-    if(task.stage !== 1){this.removeTask(task.id);}
+  	task.setStage(task.stage);//Increase stage
+    
+    taskManager.removeTask(task.id); //Avoid removing node when task is being creating.
+    
     addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
+    
     task.setNode(task.id);
   };
 
@@ -59,12 +62,13 @@ export class TasksManager {
    *
    * @Needs task.js
    */
-  removeTask(taskId) {
-      const task = this.tasks.get(taskId);    
+  removeTask(taskId, task) {
+
+      task = task || this.tasks.get(taskId);
 
       task.node.remove(); //From DOM
 
-      if(task.stage === 4){this.tasks.delete(task.id)}; //From Object
+      if(task.stage === 4){this.tasks.delete(task.id)}; //From Object only when remove-btn is pressed
   };
 
   /* 
@@ -91,33 +95,9 @@ export class TasksManager {
     
     // Simulate task progress... Passing finishTask as callback and this 
     // in order to invoke its meth thenfore (this is "window" at setTimeout callback).
-    setTimeout(this.finishTask, 2000, task, this);
+    setTimeout(this.moveToNextStage, task.duration, task, this);
 
   };
-
-
-  /* 
-   * Callback invoked after timeOut at taskInProgress finish. It inserts
-   * duration and resolution values into task DOM element; add success-failed
-   * classname to show task status and move it to Finished stage.
-   * 
-   * @params task · obj · current task
-   * @params taskManagerObj · obj · taskManager obj
-   *
-   * @Needs task.js
-   */
-  finishTask(task, taskManagerObj) {
-
-    // const resolutionDisplay = task.node.querySelector(".display-resolution-js");
-
-    //Display props at DOM
-    // task.node.querySelector(".display-duration-js").innerText = Math.round(task.duration/1000);//Rounds miliseconds of task.duration
-    // resolutionDisplay.innerText = task.resolution;
-    // resolutionDisplay.classList.add(task.resolution);
-    
-    //To finished stage column
-    taskManagerObj.moveToNextStage(task);
-  }
 
 };
 

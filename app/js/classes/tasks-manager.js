@@ -6,12 +6,10 @@ export class TasksManager {
 
   constructor() {
     this.tasks     = new Map([]);
-    this.queueNode = document.getElementById(`stage-col-1-js`);
   };
 
   /* 
-   * Intance Task class ( with id and name) add it to Task Manager queue, the  
-   * prop of TaskManage Class and at DOM.
+   * Intance Task class, add it to Object and DOM
    *
    * @params name · string · Value from input#task-input-js (index.html)
    * @Needs task.js | utilities.js
@@ -28,20 +26,21 @@ export class TasksManager {
   
   /* 
    * Common meth to move task between colums-stages. Its base on each
-   * task stage value, which begins on 1.
+   * task stage value, which begins on 0 (not included task).
    * The posible values are: 1 for queue, 2 for in progress and 3 for finished.
    * Each time a task is moved, it stage increases 1 unit automatically (Task.increseStage fn)
    * and the DOM node is removed from its current parent and injected and the next column
-   * with appendChild() fn.
+   * with addStringAsDomElement() fn.
    *
    * @params task · obj · task to move
+   * @params tataskManagersk · obj · only received when this fn is invoked by setTimeOut @see this fn docs
    * @Needs  task.js | utilities.js
    */
   moveToNextStage(task, taskManager = this) {
 
   	task.increseStage(task.stage);//Increase stage every time a task is moved
     
-    if(task.stage !== 1){taskManager.removeTask(task.id);} //Avoid removing node when task is being creating.
+    if(task.stage !== 1){taskManager.removeTask(task.id, task);} //Avoid removing node when task is being creating.
     
     addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
 
@@ -54,12 +53,13 @@ export class TasksManager {
    * tasks are stored. Tasks are easily manipulable having this value.
    *
    * @params taskId · number · task id, key at TaskManager.tasks map
+   * @params task   · obj · current task obj
    *
    * @Needs task.js
    */
   removeTask(taskId, task) {
 
-      task = task || this.tasks.get(taskId);
+      task = task || this.tasks.get(taskId); //No task obj is passed when this is invoked by rm-btn
 
       document.getElementById(`task-${task.id}`).remove(); //From DOM
 
@@ -67,10 +67,10 @@ export class TasksManager {
   };
 
   /* 
-   * This method will move current task to in progress stage with 
-   * common meth moveToNextStage, then it simulates its progress
-   * generating a random resolution (success or failed) and a the 
-   * supposed seconds spent during the task progress. 
+   * This method simulates tasks progress generating a random 
+   * resolution (success or failed) and a the supposed seconds 
+   * spent during the task progress. A setTimeOut simulates this
+   * duration and call moveToNextStage when finish.
    * 
    *
    * @params taskId · number · task id, key at TaskManager.tasks map
@@ -88,7 +88,7 @@ export class TasksManager {
     //Move in-progress stage
   	this.moveToNextStage(task);
     
-    // Simulate task progress... Passing finishTask as callback and this 
+    // Simulate task progress... Passing moveToNextStage as callback and "this"
     // in order to invoke its meth thenfore (this is "window" at setTimeout callback).
     setTimeout(this.moveToNextStage, task.duration*1000, task, this);
 

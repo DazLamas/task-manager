@@ -30,7 +30,7 @@ export class TasksManager {
    * Common meth to move task between colums-stages. Its base on each
    * task stage value, which begins on 1.
    * The posible values are: 1 for queue, 2 for in progress and 3 for finished.
-   * Each time a task is moved, it stage increases 1 unit automatically (Task.setStage fn)
+   * Each time a task is moved, it stage increases 1 unit automatically (Task.increseStage fn)
    * and the DOM node is removed from its current parent and injected and the next column
    * with appendChild() fn.
    *
@@ -39,13 +39,14 @@ export class TasksManager {
    */
   moveToNextStage(task, taskManager = this) {
 
-  	task.setStage(task.stage);//Increase stage
+  	task.increseStage(task.stage);//Increase stage every time a task is moved
     
     if(task.stage !== 1){taskManager.removeTask(task.id);} //Avoid removing node when task is being creating.
     
     addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
     
     task.setNode(task.id);
+
   };
 
   /* 
@@ -82,7 +83,7 @@ export class TasksManager {
 
   	const task = this.tasks.get(taskId);  //Get task obj from array
 
-    //Generate task props duration and final resolution
+    //Generate task props: duration and final resolution
     task.setDuration();
     task.setResolution();
 
@@ -91,7 +92,7 @@ export class TasksManager {
     
     // Simulate task progress... Passing finishTask as callback and this 
     // in order to invoke its meth thenfore (this is "window" at setTimeout callback).
-    setTimeout(this.moveToNextStage, task.duration, task, this);
+    setTimeout(this.moveToNextStage, task.duration*1000, task, this);
 
   };
 

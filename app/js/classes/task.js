@@ -16,10 +16,10 @@ export class Task {
   };
 
   // getHtmlCode() {
-  //    return htmlStrings[this.stage]; //no puede ser porque no se pasan los params
+  //    return htmlStrings[this.stage]; //no puede ser porque necesito pasar 
   // };
 
-  setStage() {
+  increseStage() {
    this.stage++;
   };
 
@@ -32,7 +32,7 @@ export class Task {
   };
 
   setDuration() {
-    this.duration = generateRandomNumber(7000, 10000);
+    this.duration = generateRandomNumber(7, 10);
   };
 
   setNode(taskId) {

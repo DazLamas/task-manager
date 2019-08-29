@@ -26,7 +26,7 @@ import { TasksManager } from './classes/tasks-manager.js';
 	 tm.createTask(document.getElementById(e.target.dataset.anchor).value);//Trigger keeps its input id at dataset.anchor atributte
 	});	
 
-	tm.createTask('Clear cache');//Simulate task, only for demo!
+	// tm.createTask('Clear cache');//Simulate task, only for demo!
 
 })(document, window, TasksManager);
 

@@ -19,14 +19,15 @@ export class TasksManager {
    */
   createTask(name) {
 	
-  	const newTask = new Task(generateUniqueId(), name);
+  	const task = new Task(generateUniqueId(), name);
+    const node = getHtmlCode(task.stage, task);
   	
     //Add tasks to Tasks Manager prop
-    this.tasks.set(newTask.id, newTask);
+    this.tasks.set(task.id, task);
     //Add task to queue column
-    addStringAsDomElement(this.queueNode, newTask.htmlCode);
+    addStringAsDomElement(this.queueNode, node);
     //Save DOM Element node at Task Class in order to move it throw each column
-    newTask.setNode(newTask.id); 
+    task.setNode(task.id); 
   };
   
   /* 
@@ -43,8 +44,9 @@ export class TasksManager {
   moveToNextStage(task) {
 
   	task.setStage(task.stage);   //Increase stage
-  	appendChild(document.getElementById(`stage-col-${task.stage}-js`), task.node); //Insert at DOM
-    
+    if(task.stage !== 1){this.removeTask(task.id);}
+    addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
+    task.setNode(task.id);
   };
 
   /* 
@@ -58,11 +60,11 @@ export class TasksManager {
    * @Needs task.js
    */
   removeTask(taskId) {
-  
       const task = this.tasks.get(taskId);    
 
       task.node.remove(); //From DOM
-      this.tasks.delete(task.id); //From Object
+
+      if(task.stage === 4){this.tasks.delete(task.id)}; //From Object
   };
 
   /* 
@@ -80,17 +82,16 @@ export class TasksManager {
 
   	const task = this.tasks.get(taskId);  //Get task obj from array
 
+    //Generate task props duration and final resolution
+    task.setDuration();
+    task.setResolution();
+
     //Move in-progress stage
   	this.moveToNextStage(task);
     
-    //Generate task props duration and final resolution
-    task.setDuration();
-    task.setResolution(randomElementInArray(['success', 'failed']));
-    
-    
     // Simulate task progress... Passing finishTask as callback and this 
     // in order to invoke its meth thenfore (this is "window" at setTimeout callback).
-    setTimeout(this.finishTask, task.duration, task, this);
+    setTimeout(this.finishTask, 2000, task, this);
 
   };
 
@@ -107,12 +108,12 @@ export class TasksManager {
    */
   finishTask(task, taskManagerObj) {
 
-    const resolutionDisplay = task.node.querySelector(".display-resolution-js");
+    // const resolutionDisplay = task.node.querySelector(".display-resolution-js");
 
     //Display props at DOM
-    task.node.querySelector(".display-duration-js").innerText = Math.round(task.duration/1000);//Rounds miliseconds of task.duration
-    resolutionDisplay.innerText = task.resolution;
-    resolutionDisplay.classList.add(task.resolution);
+    // task.node.querySelector(".display-duration-js").innerText = Math.round(task.duration/1000);//Rounds miliseconds of task.duration
+    // resolutionDisplay.innerText = task.resolution;
+    // resolutionDisplay.classList.add(task.resolution);
     
     //To finished stage column
     taskManagerObj.moveToNextStage(task);

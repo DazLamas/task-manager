@@ -12,31 +12,23 @@ export class Task {
     this.duration		  = undefined;
     this.resolution 	= undefined;
     this.node         = undefined;
-    this.htmlCode 		= `<li id="task-${this.id}" class="card">
-  								          <h4 class="card-title capitalize">${this.name}</h4>
-                            <span class="card-extra-text stage-text-box queue">Ready to start!</span>
-                            <span class="card-extra-text stage-text-box progress">Working on it...</span>
-                            
-                            <div class="loading stage-text-box progress"><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div><div class="loading-bar"></div></div>
-
-                            <span class="card-extra-text stage-text-box finished">
-                              Completed in:  <span class="display-duration-js"></span>s
-                            </span>
-                            <ul class="card-footer stage-text-box finished">
-                              <li><span class="card-text-box display-resolution-js"></span></li>
-                              <li><i data-js="remove-task" class="fas color-light fa-trash pointer" data-js-id="${this.id}"></i></li>
-                            </ul>
-  								          
-                            <button class="card-btn button btn-primary stage-text-box queue" data-js="start-progress" data-js-id="${this.id}">Start!</button>
-							           </li>`;
+    // this.htmlCode 		= a; //no puede ser porque solo se ejecuta una vez
   };
 
-  setStage(value) {
+  // getHtmlCode() {
+  //    return htmlStrings[this.stage]; //no puede ser porque no se pasan los params
+  // };
+
+  setStage() {
    this.stage++;
   };
 
+  getNextStage() {
+   return this.stage++
+  };
+
   setResolution(resolution) {
-   this.resolution = resolution;
+   this.resolution = randomElementInArray(['success', 'failed']);
   };
 
   setDuration() {

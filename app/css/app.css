@@ -405,15 +405,3 @@ html, body {
   font-weight: 500;
   color: #555555;
   letter-spacing: 0.5px; }
-
-.landing .stage-text-box {
-  display: none; }
-
-.landing .stage-col-queue .stage-text-box.queue {
-  display: flex; }
-
-.landing .stage-col-progress .stage-text-box.progress {
-  display: flex; }
-
-.landing .stage-col-finished .stage-text-box.finished {
-  display: flex; }

@@ -1,4 +1,4 @@
-/* utilities.js * Reusable and helper functions */
+	/* utilities.js * Reusable and helper functions */
 
 /* 
  * Generate unique id base on Data obj

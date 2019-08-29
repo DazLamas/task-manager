@@ -34,29 +34,29 @@
 		}
 	}
 
-	.stage-text-box{
-		display: none;
-	}
+	// .stage-text-box{
+	// 	display: none;
+	// }
 	
 	//Needed for JS. Show different task props depending on its column/stage
 	//@see classes.js file
-	.stage-col {
-		&-queue {
-			.stage-text-box.queue {
-				display: flex;
-			}
-		}
-		&-progress {
-			.stage-text-box.progress {
-				display: flex;
-			}
-		}
-		&-finished {
-			.stage-text-box.finished {
-				display: flex;
-			}
-		}
-	}
+	// .stage-col {
+	// 	&-queue {
+	// 		.stage-text-box.queue {
+	// 			display: flex;
+	// 		}
+	// 	}
+	// 	&-progress {
+	// 		.stage-text-box.progress {
+	// 			display: flex;
+	// 		}
+	// 	}
+	// 	&-finished {
+	// 		.stage-text-box.finished {
+	// 			display: flex;
+	// 		}
+	// 	}
+	// }
 }
 
 

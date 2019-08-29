@@ -11,8 +11,7 @@ export class Task {
     this.stage			  = 0;
     this.duration		  = undefined;
     this.resolution 	= undefined;
-    this.node         = undefined;
-    // this.htmlCode 		= a; //no puede ser porque solo se ejecuta una vez
+    // this.htmlCode 	= a; //no puede ser porque solo se ejecuta una vez
   };
 
   // getHtmlCode() {

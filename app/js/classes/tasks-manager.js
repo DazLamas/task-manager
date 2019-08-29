@@ -44,8 +44,6 @@ export class TasksManager {
     if(task.stage !== 1){taskManager.removeTask(task.id);} //Avoid removing node when task is being creating.
     
     addStringAsDomElement(document.getElementById(`stage-col-${task.stage}-js`), getHtmlCode(task.stage, task));
-    
-    task.setNode(task.id);
 
   };
 
@@ -63,7 +61,7 @@ export class TasksManager {
 
       task = task || this.tasks.get(taskId);
 
-      task.node.remove(); //From DOM
+      document.getElementById(`task-${task.id}`).remove(); //From DOM
 
       if(task.stage === 4){this.tasks.delete(task.id)}; //From Object only when remove-btn is pressed
   };

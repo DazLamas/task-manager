@@ -1,6 +1,6 @@
 # Task Manager
 
-Task Manager builded with pure Javascript for a codetest. No frameworks.
+Task Manager builded with pure Javascript for a codetest. No frameworks, custom design and CSS.
 Check out at https://dazlamas.github.io/task-manager/app/index.html
 
 ### Tech

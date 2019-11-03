@@ -1,6 +1,7 @@
 # Task Manager
 
-Check out Task Manager at https://dazlamas.github.io/task-manager/app/index.html
+Task Manager builded with pure Javascript Vanilla. No frameworks.
+Check out at https://dazlamas.github.io/task-manager/app/index.html
 
 ### Tech
 
